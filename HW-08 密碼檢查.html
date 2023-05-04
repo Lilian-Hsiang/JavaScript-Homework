@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>密碼檢查</title>
+    <link rel="stylesheet" href="css/nav.css" />
+    <style>
+      input {
+        margin: 10px;
+      }
+
+      span {
+        color: rgb(104, 53, 52);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="content">
+      <section>
+        <nav>
+          <ul>
+            <li><a href="HW-01 BMI.html">BMI</a></li>
+            <li><a href="HW-02 ^畫出聖誕樹.html">聖誕樹</a></li>
+            <li><a href="HW-03 猜數字遊戲.html">猜數字遊戲</a></li>
+            <li><a href="HW-04 閏年.html">閏年</a></li>
+            <li><a href="HW-05 九九乘法表.html">九九乘法表</a></li>
+            <li><a href="HW-07  攝氏華氏溫度.html">溫度轉換器</a></li>
+            <li><a href="HW-08 密碼檢查.html">密碼檢查</a></li>
+            <li><a href="HW-09 檢查電子郵件.html">檢查電子郵件</a></li>
+            <li><a href="HW-10 生日.html">生日</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section class="hw">
+        <h2>請設定一個八位數的密碼</h2>
+        <h4>至少包含一個大寫字母、小寫字母、數字、符號</h4>
+        <label for="pwd">Password:</label>
+        <input type="password" value="" id="pwd" size="12" />
+        <br />
+        <span id="span"></span>
+        <br />
+        <input
+          type="button"
+          value="Check Password"
+          id="btn"
+          onclick="checkPwd()"
+        />
+      </section>
+    </div>
+
+    <script>
+      function checkPwd() {
+        //取得password元素
+        re =
+          /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[\w,!@#$%^&*].{8,}$/;
+        //re是自己設定的變數名稱
+        // ^開始  // ＄結束
+        // ?=.*是至少要有一次  // \d是數字  // !@#$%^&*是shift+12345678
+        // [\w,!@#$%^&*].{8,} -> \w是數字字母字元或底線字母 ,及 符號!@#$%^&*  //{8,}是至少八位數
+        //->.是代表任何一個字元 // [\w,!@#$%^&*].{8,} ->代表任何一個字元都要有英文數字符號
+        //取得password元素值
+        let pwd = document.getElementById("pwd").value;
+        let sp = document.getElementById("span");
+        console.log(pwd);
+        if (re.test(pwd)) {
+          sp.innerHTML = "密碼設定格式正確!";
+        } else {
+          sp.innerHTML = "密碼格式設定有誤，請重新設定密碼";
+        }
+
+        //判斷元素值是否為空白，密碼長度是否大於8
+        //至少包含一個大寫字母、小寫字母、數字、符號
+      }
+    </script>
+  </body>
+</html>

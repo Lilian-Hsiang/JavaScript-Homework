@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework - 01.BMI</title>
+    <link rel="stylesheet" href="css/nav.css" />
+</head>
+<style>
+    #output {
+        width: 100px;
+        height: 30px;
+        /* background-color: #e98a37; */
+        color: rgb(196, 112, 27);
+        /* border: 2px solid rgb(219, 118, 118); */
+        margin: auto;
+        margin-top: 10px;
+        border-radius: 10px;
+        text-align: center;
+        line-height: 30px;
+    }
+
+    #output {
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div id="content">
+        <section>
+            <nav>
+                <ul>
+                    <li><a href="HW-01 BMI.html">BMI</a></li>
+                    <li><a href="HW-02 ^畫出聖誕樹.html">聖誕樹</a></li>
+                    <li><a href="HW-03 猜數字遊戲.html">猜數字遊戲</a></li>
+                    <li><a href="HW-04 閏年.html">閏年</a></li>
+                    <li><a href="HW-05 九九乘法表.html">九九乘法表</a></li>
+                    <li><a href="HW-07  攝氏華氏溫度.html">溫度轉換器</a></li>
+                    <li><a href="HW-08 密碼檢查.html">密碼檢查</a></li>
+                    <li><a href="HW-09 檢查電子郵件.html">檢查電子郵件</a></li>
+                    <li><a href="HW-10 生日.html">生日</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section class="hw">
+            <!-- #1-BMI -->
+            <h2>請輸入自己的體重及身高</h2>
+            <input type="text" value="" placeholder="請輸入身高(公分)" id="height" />
+            <input type="text" value="" placeholder="請輸入體重(公斤)" id="weight" />
+            <input type="button" value="計算" id="BMI-calculate" />
+            <div id="output"></div>
+        </section>
+    </div>
+
+    <script>
+        //#1-BMI計算
+        let height = document.getElementById("height");
+        let weight = document.getElementById("weight");
+        let calculate = document.getElementById("BMI-calculate");
+        let output = document.getElementById("output");
+        let BMI = "";
+
+        calculate.addEventListener("click", function () {
+            let resultHeight =
+                (Number(height.value) / 100) * (Number(height.value) / 100);
+            let resultWeight = Number(weight.value);
+            let BMI = resultWeight / resultHeight;
+            console.log(BMI);
+
+            if (BMI < 18.5) {
+                output.innerHTML = "過輕";
+            } else if (BMI >= 18.5 && BMI < 24) {
+                output.innerHTML = "正常";
+            } else if (BMI >= 24 && BMI < 27) {
+                output.innerHTML = "過重";
+            } else if (BMI >= 27 && BMI < 30) {
+                output.innerHTML = "輕度肥胖";
+            } else if (BMI >= 30 && BMI < 35) {
+                output.innerHTML = "中度肥胖";
+            } else {
+                output.innerHTML = "重度肥胖";
+            }
+        });
+    </script>
+</body>
+
+</html>

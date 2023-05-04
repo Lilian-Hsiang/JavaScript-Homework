@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>溫度計(攝氏vs華氏)</title>
+  <link rel="stylesheet" href="css/nav.css" />
+  <style>
+    div {
+      margin: 10px;
+    }
+
+    #btn1,
+    #btn2 {
+      background-color: #c47040;
+      color: white;
+      border-radius: 5px;
+      line-height: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="content">
+    <section>
+      <nav>
+        <ul>
+          <li><a href="HW-01 BMI.html">BMI</a></li>
+          <li><a href="HW-02 ^畫出聖誕樹.html">聖誕樹</a></li>
+          <li><a href="HW-03 猜數字遊戲.html">猜數字遊戲</a></li>
+          <li><a href="HW-04 閏年.html">閏年</a></li>
+          <li><a href="HW-05 九九乘法表.html">九九乘法表</a></li>
+          <li><a href="HW-07  攝氏華氏溫度.html">溫度轉換器</a></li>
+          <li><a href="HW-08 密碼檢查.html">密碼檢查</a></li>
+          <li><a href="HW-09 檢查電子郵件.html">檢查電子郵件</a></li>
+          <li><a href="HW-10 生日.html">生日</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section class="hw">
+      <h2>溫度轉換器</h2>
+      <div>
+        <label for="C">攝氏溫度:</label>
+        <input type="text" value="" placeholder="°C" id="C" />
+        <input type="submit" value="攝氏轉換華氏" id="btn1" />
+        <br />
+      </div>
+      <div>
+        <label for="F">華氏溫度:</label>
+        <input type="text" value="" placeholder="°F" id="F" />
+        <input type="submit" value="華氏轉換攝氏" id="btn2" />
+        <br />
+      </div>
+    </section>
+  </div>
+
+  <script>
+    let C = document.getElementById("C");
+    let F = document.getElementById("F");
+    let btn1 = document.getElementById("btn1");
+    let btn2 = document.getElementById("btn2");
+
+    // console.log(C);
+    // console.log(F);
+    // console.log(btn1);
+    // console.log(btn2);
+
+    //攝氏轉換華氏
+    btn1.addEventListener("click", check1); //check是可以自己命名的function名稱
+    function check1() {
+      let resultC = Number(C.value); //C.value本來類型是string，用Number()把他轉成數字
+      let resultF = Number((C.value * 9) / 5 + 32);
+      console.log(resultF);
+      F.value = resultF;
+    }
+
+    //華氏轉換攝氏
+    btn2.addEventListener("click", check2);
+    function check2() {
+      let resultF = Number(F.value);
+      let resultC = Number(((F.value - 32) * 5) / 9);
+      C.value = resultC;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>生日</title>
+    <link rel="stylesheet" href="css/nav.css" />
+    <style>
+      #yearsOld {
+        display: block;
+        margin: 10px;
+        font-weight: bold;
+        color: rgb(73, 87, 168);
+      }
+      .birth {
+        width: 70px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="content">
+      <section>
+        <nav>
+          <ul>
+            <li><a href="HW-01 BMI.html">BMI</a></li>
+            <li><a href="HW-02 ^畫出聖誕樹.html">聖誕樹</a></li>
+            <li><a href="HW-03 猜數字遊戲.html">猜數字遊戲</a></li>
+            <li><a href="HW-04 閏年.html">閏年</a></li>
+            <li><a href="HW-05 九九乘法表.html">九九乘法表</a></li>
+            <li><a href="HW-07  攝氏華氏溫度.html">溫度轉換器</a></li>
+            <li><a href="HW-08 密碼檢查.html">密碼檢查</a></li>
+            <li><a href="HW-09 檢查電子郵件.html">檢查電子郵件</a></li>
+            <li><a href="HW-10 生日.html">生日</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section class="hw">
+        <h2>今年幾歲?</h2>
+        <input type="text" placeholder="2000" id="birthYear" class="birth" />
+        <input type="text" placeholder="01" id="birthMonth" class="birth" />
+        <input type="text" placeholder="01" id="birthDate" class="birth" />
+        <input type="button" value="計算" id="btn" />
+        <br />
+        <span id="yearsOld"></span>
+      </section>
+    </div>
+
+    <script>
+      let birthYear = document.getElementById("birthYear");
+      let birthMonth = document.getElementById("birthMonth");
+      let birthDate = document.getElementById("birthDate");
+      let yearsOld = document.getElementById("yearsOld");
+      let btn = document.getElementById("btn");
+
+      //宣告一個new Date
+      let d = new Date();
+      let theYear = d.getFullYear();
+      let theMonth = d.getMonth() + 1;
+      let theDate = d.getDate();
+
+      btn.addEventListener("click", () => {
+        // ()=> 是function(){}
+        let yearValue = Number(birthYear.value);
+        let monthValue = Number(birthMonth.value);
+        let dateValue = Number(birthDate.value);
+        let Y = theYear - yearValue;
+
+        if (monthValue > theMonth) {
+          Y = Y - 1; //Y-=1
+        } else if (monthValue === theMonth && dateValue > theDate) {
+          Y -= 1;
+        }
+        yearsOld.innerHTML = `你今年${Y}歲`;
+      });
+
+      //   let born = Number(prompt("請輸入您的出生年（西元）"));
+      //   let now = Number(new Date().getFullYear());
+      //   window.alert(`您今年${now - born}歲`);
+
+      // 查看今天日期或指定日期(含標準時間)
+      // let d = new Date("2023-01-06T11:20:30");    //Fri Jan 06 2023 11:20:30 GMT+0800 (台北標準時間)
+      // let d = new Date(2023, 0, 6, 11, 20, 30);   //Fri Jan 06 2023 11:20:30 GMT+0800 (台北標準時間)
+      // let d = new Date();    //Fri Mar 31 2023 15:20:01 GMT+0800 (台北標準時間)
+      // console.log(d);
+
+      // let theYear = d.getFullYear() - 1911;
+      // let theMonth = d.getMonth() + 1;
+      // let theDate = d.getDate();
+      // console.log(theYear); //112
+      // console.log(theMonth); //3
+      // console.log(theDate);  //31
+      // console.log(new Date().getDay()); //5(星期五)
+      // console.log(new Date().getTime()); //1680247945503 ->回傳自1970/1/1  0:0:0 到現在算起之毫秒數
+    </script>
+  </body>
+</html>

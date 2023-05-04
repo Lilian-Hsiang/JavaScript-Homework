@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>猜數字遊戲</title>
+    <link rel="stylesheet" href="css/nav.css" />
+  </head>
+  <body>
+    <div id="content">
+      <section>
+        <nav>
+          <ul>
+            <li><a href="HW-01 BMI.html">BMI</a></li>
+            <li><a href="HW-02 ^畫出聖誕樹.html">聖誕樹</a></li>
+            <li><a href="HW-03 猜數字遊戲.html">猜數字遊戲</a></li>
+            <li><a href="HW-04 閏年.html">閏年</a></li>
+            <li><a href="HW-05 九九乘法表.html">九九乘法表</a></li>
+            <li><a href="HW-07  攝氏華氏溫度.html">溫度轉換器</a></li>
+            <li><a href="HW-08 密碼檢查.html">密碼檢查</a></li>
+            <li><a href="HW-09 檢查電子郵件.html">檢查電子郵件</a></li>
+            <li><a href="HW-10 生日.html">生日</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section class="hw">
+        <h2>猜數字遊戲</h2>
+        <h4>請輸入猜測的數字(1-100)，輸入0或按“結束遊戲”可以離開遊戲</h4>
+        <div>
+          <button onclick="playNumGame()">開始遊戲</button>
+          <button onclick="quitNumGame()">結束遊戲</button>
+          <table>
+            <tr id="showGuessNum"></tr>
+          </table>
+        </div>
+        <!-- <input type="submit" value="開始遊戲" id="startGame">
+            <div id="answer"></div>
+            <input type="text" value="" placeholder="請輸入數字" id="number">
+            <input type="submit" value="猜猜看" id="number-calculate"> -->
+      </section>
+    </div>
+
+    <script>
+      let playNumGame = () => {
+        let gameStart = true;
+        let targetNum = Math.floor(Math.random() * 100);
+        console.log(targetNum);
+
+        while (gameStart === true) {
+          let getNum = parseInt(prompt("請輸入猜測的數字（1-100）"));
+          if (getNum === targetNum) {
+            gameStart === false;
+            window.alert("恭喜答對！遊戲結束！");
+          } else if (getNum === 0) {
+            gameStart === false;
+            window.alert("遊戲結束！");
+          } else if (getNum > 100 || getNum < 1) {
+            gameStart === true;
+            window.parseInt(prompt("數字範圍在1-100之間"));
+          } else if (getNum === NaN) {
+            gameStart === true;
+            window.parseInt(prompt("請輸入“數字”，範圍是1-100之間"));
+          } else if (getNum > targetNum) {
+            gameStart === true;
+            window.parseInt(prompt("數字太大！"));
+          } else if (getNum < targetNum) {
+            gameStart === true;
+            window.parseInt(prompt("數字太小！"));
+          }
+        }
+      };
+      let quitNumGame = () => {
+        let gameStart = false;
+      };
+    </script>
+  </body>
+</html>

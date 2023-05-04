@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>九九乘法表</title>
+  <link rel="stylesheet" href="css/nav.css" />
+</head>
+<style>
+  table {
+    border: 5px solid rgb(218, 175, 96);
+    border-collapse: collapse;
+    width: 800px;
+    height: 250px;
+    line-height: 25px;
+    background-color: #ffffffc8;
+  }
+
+  tr,
+  th,
+  td {
+    border: 2px solid rgb(228, 169, 142);
+  }
+
+  td {
+    text-align: center;
+    letter-spacing: 3px;
+  }
+
+  th:nth-child(2n + 1) {
+    background-color: #f7b55e;
+    color: white;
+    font-size: 22px;
+  }
+
+  th:nth-child(2n) {
+    background-color: #c2603a;
+    color: white;
+    font-size: 22px;
+  }
+
+  .TR {
+    width: 800px;
+    /* border: 3px solid red; */
+    margin: auto;
+  }
+</style>
+
+<body>
+  <div id="content">
+    <section>
+      <nav>
+        <ul>
+          <li><a href="HW-01 BMI.html">BMI</a></li>
+          <li><a href="HW-02 ^畫出聖誕樹.html">聖誕樹</a></li>
+          <li><a href="HW-03 猜數字遊戲.html">猜數字遊戲</a></li>
+          <li><a href="HW-04 閏年.html">閏年</a></li>
+          <li><a href="HW-05 九九乘法表.html">九九乘法表</a></li>
+          <li><a href="HW-07  攝氏華氏溫度.html">溫度轉換器</a></li>
+          <li><a href="HW-08 密碼檢查.html">密碼檢查</a></li>
+          <li><a href="HW-09 檢查電子郵件.html">檢查電子郵件</a></li>
+          <li><a href="HW-10 生日.html">生日</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section class="TR">
+      <table>
+        <tr>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+        </tr>
+        <tr id="timeRow"></tr>
+      </table>
+    </section>
+  </div>
+
+  <script>
+    let timeRow = document.getElementById("timeRow");
+
+    function TimeRow() {
+      for (let row = 1; row <= 9; row++) {
+        //1
+        var result = "";
+
+        //2
+        for (let col = 1; col <= 9; col++) {
+          result += `${row}x${col}=${row * col}<br>`;
+          //-> result = result + `${row}x${col}=${row*col}\n`
+          //->如果要換行的話要用<br> 不能用/n
+        }
+        console.log(result);
+        //3
+        timeRow.innerHTML += `<td>${result}</td>`;
+        //-> timeRow.innerHTML = timeRow.innerHTML + `<td>${result}</td>`
+        // 因為前面有 .innerHTML，所以後面反引號``裡面放<td>標籤是可以辨識出來的 (如果前面是document.write也可以辨識的出來<td>標籤)(如果是其他標籤就辨識不出來)
+
+        // ``反引號裡面的內容就像一個字串，所以在``裡面要讀取變數值就要用${}
+      }
+    }
+    TimeRow();
+  </script>
+</body>
+
+</html>

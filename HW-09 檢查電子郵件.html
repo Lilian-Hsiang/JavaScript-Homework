@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email檢查</title>
+    <link rel="stylesheet" href="css/nav.css" />
+  </head>
+  <body>
+    <div id="content">
+      <section>
+        <nav>
+          <ul>
+            <li><a href="HW-01 BMI.html">BMI</a></li>
+            <li><a href="HW-02 ^畫出聖誕樹.html">聖誕樹</a></li>
+            <li><a href="HW-03 猜數字遊戲.html">猜數字遊戲</a></li>
+            <li><a href="HW-04 閏年.html">閏年</a></li>
+            <li><a href="HW-05 九九乘法表.html">九九乘法表</a></li>
+            <li><a href="HW-07  攝氏華氏溫度.html">溫度轉換器</a></li>
+            <li><a href="HW-08 密碼檢查.html">密碼檢查</a></li>
+            <li><a href="HW-09 檢查電子郵件.html">檢查電子郵件</a></li>
+            <li><a href="HW-10 生日.html">生日</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section class="hw">
+        <h2>檢查電子郵件格式</h2>
+        <label for="email">Email:</label>
+        <input type="text" placeholder="example@gmail.com" id="email" />
+        <input type="button" value="提交" id="btn" />
+        <br />
+        <span id="outcome"></span>
+      </section>
+    </div>
+
+    <script>
+      let btn = document.getElementById("btn");
+      btn.addEventListener("click", () => {
+        re = /^.+@.+\..{2,3}$/;
+        let email = document.getElementById("email").value;
+        let outcome = document.getElementById("outcome");
+
+        if (re.test(email)) {
+          outcome.innerHTML = "信箱格式正確！";
+        } else {
+          outcome.innerHTML = "信箱格式錯誤，請重新輸入一次！";
+        }
+      });
+      //   function checkEmail() {
+      //   }
+    </script>
+  </body>
+</html>

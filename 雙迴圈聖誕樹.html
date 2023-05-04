@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雙迴圈聖誕樹</title>
+</head>
+
+<body>
+    <script>
+        //先畫樹，畫個矩陣再減空白
+        let a, b, c, d = 0;
+        for (a = 1; a <= 5; a++) {
+            for (b = 1; b <= 5 - a; b++) {
+                document.write("&nbsp&nbsp")
+            }
+            for (c = 1; c <= 2 * a - 1; c++) {
+                document.write("^")
+            }
+            document.write("<br>")
+        }
+        for (d = 1; d <= 3; d++) {
+            for (e = 1; e <= 4; e++) {
+                document.write("&nbsp&nbsp")
+            }
+            document.write("^")
+            document.write("<br>")
+        }
+
+    </script>
+
+</body>
+
+</html>
